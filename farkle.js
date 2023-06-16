@@ -34,10 +34,10 @@ function diceClick(img){
 
 	img.classList.toggle("transparent");
 	if(diceArr[i].clicked === 0){
-		diceArr[i].clicked == 1;
+		diceArr[i].clicked = 1;
 	}
 	else{
-		diceArr[i].clicked == 0;
+		diceArr[i].clicked = 0;
 	}
 
 }
@@ -74,8 +74,6 @@ function calculateScore() {
 		
 	}
 
-	
-	console.log(JSON.stringify(counts));
 	var scoreCard = document.querySelector('.score');
 	scoreCard.innerHTML = ""+score;
 }
