@@ -1,4 +1,5 @@
 var diceArr = [];
+var bank = 0;
 
 function initializeDice(){
 	for(i = 0; i < 6; i++){
@@ -98,6 +99,13 @@ function calculateScore() {
 	}
 }
 
+function reactivateDice() {
+	var diceImages = document.querySelectorAll('.dice img');
+	for (var i = 0; i < diceImages.length; i++) {
+  		diceImages[i].classList.remove('transparent');
+	}
+}
+
 // Reset the game board
 function resetGame() {
 	initializeDice();
@@ -105,9 +113,13 @@ function resetGame() {
 	document.querySelector('.score').innerHTML = 0;
 	document.querySelector('.roll').disabled = false;
 	document.querySelector('.bank').disabled = false;
+	reactivateDice();
+}
 
-	var diceImages = document.querySelectorAll('.dice img');
-	for (var i = 0; i < diceImages.length; i++) {
-  		diceImages[i].classList.remove('transparent');
-	}
+function bankScore() {
+	// Add current score to total
+	var scoreCard = document.querySelector('.score');
+	bank += parseInt(scoreCard.innerHTML) || 0;
+	scoreCard.innerHTML = bank;
+	reactivateDice();
 }
