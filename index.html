@@ -31,5 +31,65 @@
 		<button class="button reset column" onclick="resetGame()">Reset Game</button>
 		<button class="button bank column" onclick="bankScore()">Bank Score</button>
 	</div>
+
+	<br>
+	<h3>Here are the rules of Farkle:</h3>
+
+	<p>On your turn, you roll six dice. Points are earned every time you roll a 1, 5, or three of a kind.</p>
+
+	<table>
+	<thead>
+		<tr>
+		<th>Dice Combo</th>
+		<th>Score</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+		<td>Each 1 rolled</td>
+		<td>100</td>
+		</tr>
+		<tr>
+		<td>Each 5 rolled</td>
+		<td>50</td>
+		</tr>
+		<tr>
+		<td>Three 1’s</td>
+		<td>1000</td>
+		</tr>
+		<tr>
+		<td>Three 2’s</td>
+		<td>200</td>
+		</tr>
+		<tr>
+		<td>Three 3’s</td>
+		<td>300</td>
+		</tr>
+		<tr>
+		<td>Three 4’s</td>
+		<td>400</td>
+		</tr>
+		<tr>
+		<td>Three 5’s</td>
+		<td>500</td>
+		</tr>
+		<tr>
+		<td>Three 6’s</td>
+		<td>600</td>
+		</tr>
+	</tbody>
+	</table>
+
+	<p>If none of the dice rolled earned points, that's a Farkle! Your turn is over and you earn no points.</p>
+
+	<p>If you roll at least one scoring die, you can either bank your point total and pass your turn, or you can risk these points by putting aside the dice you’ve scored (at least one) and continuing to roll the remaining dice. The remaining dice may earn you additional points, but if you Farkle, you lose everything you’ve earned during your turn.</p>
+
+	<p>Scoring is based only on the dice in each roll. You cannot earn points by combining dice from different rolls. You can continue rolling the dice until you either Pass or Farkle.</p>
+
+	<p>If the game is played by multiple players, then each player takes their turn in order until one player has 10,000 points at the end of their turn. Each player then has one more chance to score points, and whoever has the most points at the end of that round wins.</p>
+
+	<p> Note: This implementation of Farkle always targets the highest possible score on the board. While normally, you may choose to not take triple 5's, this program will automatically take the triple 5's as the score.</p>
+	
+	<p> To play with multiple players, open up multiple instances of this web application and keep track against each other. There is no direct multiplayer implementation in this version. </p>
 </body>
 </html>
