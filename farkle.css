@@ -53,6 +53,9 @@ body{
   font-size: 16px;
   margin-left: 25px;
 }
+.button:disabled {
+	background-color: #646464;
+}
 .column{
 	width:20%;
 	margin-left: 0 80px;

@@ -21,6 +21,9 @@ function rollDice(){
 	}
 	updateDiceImg();
 	calculateScore();
+
+	// Score can be banked once the dice have been rolled
+	document.querySelector('.bank').disabled = false;
 }
 
 /*Updating images of dice given values of rollDice*/
@@ -130,4 +133,7 @@ function bankScore() {
 	turn++;
 	var turnCounter = document.querySelector('.turns');
 	turnCounter.innerHTML = "You have made it to Round " + turn;
+
+	// Disable banking score until at least one roll is made
+	document.querySelector('.bank').disabled = true;
 }
