@@ -1,3 +1,14 @@
+# Farkle Dice Game
+
+## Description
+
+This project contains a web-based application for the Farkle dice game. This implementation always aims to target the highest, or most risky score. For example, even though you may want to count individual 5's separately when a triple is available, this program will always count the triple first. This program also totals all available points, tracks rounds played, and prevents further play when a Farkle is rolled. For more information, try launching and playing.
+
+
+Notice: This implementation is not perfect, nor is it entirely complete at the moment. This was completed as part of a technical challenge for an interview, and as such, needed to be completed on a time limit. Thank you for understanding.
+
+## Original Prompt
+
 Attached you’ll find some imperfect starting code for the dice game, Farkle. We want to see how you can improve it! It's up to you to decide how to make the game better: you can focus on implementing the features, building something more interactive, or making it visually appealing. You have three hours, so show us what you can do best! 
  
 Here are the rules of Farkle:
