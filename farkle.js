@@ -38,6 +38,7 @@ function diceClick(img){
 	}
 	else{
 		diceArr[i].clicked = 0;
+		alert("No die should be rerolled after being set aside without restarting or banking your score. \n\n The die will be untoggled, but please don't cheat!");
 	}
 
 }
