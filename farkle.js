@@ -44,6 +44,7 @@ function diceClick(img){
 
 function calculateScore() {
 	var score = 0;
+	var isFullRoll = true;
 
 	var counts = {};
 
@@ -52,6 +53,8 @@ function calculateScore() {
 		if(diceArr[i].clicked === 0) {
 			var face = diceArr[i].value;
 			counts[face] = (counts[face] || 0) + 1;
+		} else {
+			isFullRoll = false;
 		}
 	}
 
@@ -79,6 +82,17 @@ function calculateScore() {
 	}
 
 	var scoreCard = document.querySelector('.score');
-	scoreCard.innerHTML = parseInt(scoreCard.innerHTML) + score;
-	// Display score from previous roll + new score
+	
+	if(score <= 0) {
+		// Rolled a farkle, game over.
+		scoreCard.innerHTML = "Farkle!";
+		document.querySelector('.roll').disabled = true;
+		document.querySelector('.bank').disabled = true;
+	} else if(isFullRoll) {
+		// If all 6 are rolled, only display new score. (Don't tally restarts)
+		scoreCard.innerHTML = score;
+	} else {
+		// Display score from previous roll + new score
+		scoreCard.innerHTML = parseInt(scoreCard.innerHTML) + score;
+	}
 }
