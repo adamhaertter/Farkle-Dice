@@ -20,10 +20,12 @@ function rollDice(){
 		}
 	}
 	updateDiceImg();
-	calculateScore();
 
 	// Score can be banked once the dice have been rolled
 	document.querySelector('.bank').disabled = false;
+
+	calculateScore();
+
 }
 
 /*Updating images of dice given values of rollDice*/
