@@ -97,3 +97,17 @@ function calculateScore() {
 		scoreCard.innerHTML = parseInt(scoreCard.innerHTML) + score;
 	}
 }
+
+// Reset the game board
+function resetGame() {
+	initializeDice();
+	updateDiceImg();
+	document.querySelector('.score').innerHTML = 0;
+	document.querySelector('.roll').disabled = false;
+	document.querySelector('.bank').disabled = false;
+
+	var diceImages = document.querySelectorAll('.dice img');
+	for (var i = 0; i < diceImages.length; i++) {
+  		diceImages[i].classList.remove('transparent');
+	}
+}
