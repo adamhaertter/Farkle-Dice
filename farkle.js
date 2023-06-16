@@ -117,12 +117,18 @@ function reactivateDice() {
 function resetGame() {
 	initializeDice();
 	updateDiceImg();
+	
 	document.querySelector('.score').innerHTML = 0;
 	document.querySelector('.roll').disabled = false;
 	document.querySelector('.bank').disabled = false;
+
 	reactivateDice();
+
 	var turnCounter = document.querySelector('.turns');
 	turnCounter.innerHTML = "You have made it to Round " + turn;
+
+	bank = 0;
+	document.querySelector('.bankScore').innerHTML = "Banked score: " + bank;
 }
 
 function bankScore() {
@@ -131,6 +137,8 @@ function bankScore() {
 	bank += parseInt(scoreCard.innerHTML) || 0;
 	scoreCard.innerHTML = bank;
 	reactivateDice();
+
+	document.querySelector('.bankScore').innerHTML = "Banked score: " + bank;
 
 	turn++;
 	var turnCounter = document.querySelector('.turns');
