@@ -17,6 +17,7 @@ function rollDice(){
 		}
 	}
 	updateDiceImg();
+	calculateScore();
 }
 
 /*Updating images of dice given values of rollDice*/
@@ -39,4 +40,42 @@ function diceClick(img){
 		diceArr[i].clicked == 0;
 	}
 
+}
+
+function calculateScore() {
+	var score = 0;
+
+	var counts = {};
+
+	for(var i = 0; i < 6; i++) {
+		var face = diceArr[i].value;
+		counts[face] = (counts[face] || 0) + 1;
+	}
+
+	for(var face in counts) {
+		var count = counts[face];
+
+		// Three of a kind scores:
+		if(count >= 3) {
+			if(face == 1)
+				score += 1000;
+			else
+				score += (face * 100);
+			count -= 3; // Reduce count to exlude double-counting dice
+		}
+
+		// Score single 5s
+		if(face == 5 && count > 0)
+			score += count * 50;
+		
+		// Score single 1s
+		if(face == 1 && count > 0)
+			score += count * 100
+		
+	}
+
+	
+	console.log(JSON.stringify(counts));
+	var scoreCard = document.querySelector('.score');
+	scoreCard.innerHTML = ""+score;
 }
