@@ -1,5 +1,6 @@
 var diceArr = [];
 var bank = 0;
+var turn = 1;
 
 function initializeDice(){
 	for(i = 0; i < 6; i++){
@@ -8,6 +9,7 @@ function initializeDice(){
 		diceArr[i].value = i + 1;
 		diceArr[i].clicked = 0;
 	}
+	turn = 1;
 }
 
 /*Rolling dice values*/
@@ -114,6 +116,8 @@ function resetGame() {
 	document.querySelector('.roll').disabled = false;
 	document.querySelector('.bank').disabled = false;
 	reactivateDice();
+	var turnCounter = document.querySelector('.turns');
+	turnCounter.innerHTML = "You have made it to Round " + turn;
 }
 
 function bankScore() {
@@ -122,4 +126,8 @@ function bankScore() {
 	bank += parseInt(scoreCard.innerHTML) || 0;
 	scoreCard.innerHTML = bank;
 	reactivateDice();
+
+	turn++;
+	var turnCounter = document.querySelector('.turns');
+	turnCounter.innerHTML = "You have made it to Round " + turn;
 }
