@@ -47,11 +47,15 @@ function calculateScore() {
 
 	var counts = {};
 
+	// Count number of faces per die, unclicked only
 	for(var i = 0; i < 6; i++) {
-		var face = diceArr[i].value;
-		counts[face] = (counts[face] || 0) + 1;
+		if(diceArr[i].clicked === 0) {
+			var face = diceArr[i].value;
+			counts[face] = (counts[face] || 0) + 1;
+		}
 	}
 
+	// Score based on face counts, assuming we want the highest possible score
 	for(var face in counts) {
 		var count = counts[face];
 
@@ -75,5 +79,6 @@ function calculateScore() {
 	}
 
 	var scoreCard = document.querySelector('.score');
-	scoreCard.innerHTML = ""+score;
+	scoreCard.innerHTML = parseInt(scoreCard.innerHTML) + score;
+	// Display score from previous roll + new score
 }
